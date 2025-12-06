@@ -412,7 +412,7 @@ feature_model.eval()
 
 # We saved the features to a dictionary to make them accessible
 
-save_path = "/content/drive/MyDrive/pill_features.pt"
+save_path = "pill_features.pt"
 create_new_features_dict = True
 
 if create_new_features_dict:
@@ -684,9 +684,6 @@ for k in topk_list:
     print(f"Recall@{k}: {recalls[k]:.4f}, MRR@{k}: {mrrs[k]:.4f}")
 print(f"Average inference time per image: {avg_time:.4f} seconds")
 
-
-#real world example
-retrieve_top_k("/content/drive/MyDrive/Amoxicillin 200 MG Clavulanate 28.5 MG Chewable Tablet.JPG")
 
 # Part of the projetc was to perform an error analysis
 # To do this we essentially showed the true label, predicted label, and the top 5 labels returned
