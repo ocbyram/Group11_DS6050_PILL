@@ -1,3 +1,4 @@
+# Import dependencies
 
 import os
 import pandas as pd
@@ -12,6 +13,8 @@ import torchvision.transforms as transforms
 import torchvision.models as models
 
 from eval_retrieval import evaluate
+
+# This trains and returns loss and accuracy
 
 def train_one_epoch(model, loader, optimizer, device, criterion):
    model.train()
@@ -36,6 +39,8 @@ def train_one_epoch(model, loader, optimizer, device, criterion):
 
 
    return total_loss / total, correct / total
+
+# Function to train ResNet18 
 
 def train_resnet(device, num_classes, train_loader, val_loader, criterion):
     model = models.resnet18(weights="IMAGENET1K_V1")
@@ -77,3 +82,4 @@ def train_resnet(device, num_classes, train_loader, val_loader, criterion):
         print(f"  Val   Loss: {val_loss:.4f} | Val   Acc: {val_acc:.4f}")
         print("-" * 20)
     return model,train_losses,val_losses,train_accuracies,val_accuracies
+
