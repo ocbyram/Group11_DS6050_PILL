@@ -1,9 +1,9 @@
 # Group11_DS6050_PILL
 The repository for our DS6050 Final Project titled P.I.L.L.
 
-This repository includes our full pipeline for the beginning of our P.I.L.L. Project. Our goal was to build and evaluate baseline models for pill image classification utilizing the NLM dataset. Within our notebook file, we load and verify the dataset, checking for missing files, and encode over 2100 unique pill classes. After defining our transforms and building a custom PyTorch class for our Dataset, we create a 70-15-15 training/validation/test split and train a ResNet18 model implemented from scratch. While this model did learn, its accuracy remained fairly low, telling us that perhaps training a deep CNN from scratch on a dataset with thousands of classes and limited images may be too tall a task.
+This repository includes our full pipeline for the beginning of our P.I.L.L. Project. Our goal was to build and evaluate baseline models for pill image classification utilizing the NLM dataset. Within our notebook file, we load and verify the dataset, checking for missing files, and encode over 2100 unique pill classes. After defining our transforms and building a custom PyTorch class for our Dataset, we create a 70-15-15 training/validation/test pill-level split and trained a ResNet18 model implemented from scratch. While this model did learn, its accuracy remained fairly low, telling us that perhaps training a deep CNN from scratch on a dataset with thousands of classes and limited images may be too tall a task.
 
-Instead, we shifted to what proved to be a more effective approach, which was using a pretrained ResNet18 for feature extraction. With ImageNet weights and a replaced final layer (to match the number of classes) this model trained quickly and reached strong performance, with almost a 90% validation accuracy in just 10 epochs. After saving the pretrained model, we convert it into a feature extractor and generate 512-dim embeddings for every image, storing them in a dictionary. As next steps, we plan on feeding these embeddings into a small RNN classifier.
+Instead, we shifted to what proved to be a more effective approach, which was using a pretrained ResNet18 for feature extraction. With ImageNet weights and a replaced final layer (to match the number of classes) this model trained quickly and reached strong performance, with almost a higher validation accuracy in just 10 epochs. After saving the pretrained model, we convert it into a feature extractor and generate 512-dim embeddings for every image, storing them in a dictionary. We then used these in conjunction with KNN retieval for our final method. 
 
 Repositiory Contents Include:
 
@@ -88,6 +88,7 @@ knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
 ```
+
 
 
 
