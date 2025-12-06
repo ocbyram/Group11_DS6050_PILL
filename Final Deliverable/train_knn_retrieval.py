@@ -1,3 +1,4 @@
+# Import dependencies
 
 import os
 import pandas as pd
@@ -16,6 +17,7 @@ import numpy as np
 
 
 
+# This is the function that we used to train the KNN
 
 def train_knn(features_dict):
     pill_names = list(features_dict.keys())
@@ -39,3 +41,4 @@ def train_knn(features_dict):
 
     knn.fit(X, y)
     return X,y,knn
+
