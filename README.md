@@ -26,7 +26,7 @@ Final folder: A folder containing:
 - 'Data' Folder (this contained three folders (300, 600, real_world) which all contain image data
 - main.py (combines the .pys to run these models)
 - nlm_images_verified.csv (verifies the images are uploaded correctly)
-- Group11_Final_Paper (Our Final Paper Deliverable)
+- Group11_Final_Paper.pdf (Our Final Paper Deliverable)
 
 ### Instructions for reproducibility:
 
@@ -93,6 +93,7 @@ knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
 ```
+
 
 
 
