@@ -41,7 +41,7 @@ In order to train the Resnet18 you can call the following code:
 from train_resnet18_classifier import train_resnet
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-num_classes = 2100
+num_classes = 2112
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader   = DataLoader(val_dataset, batch_size=32, shuffle=False)
@@ -88,5 +88,6 @@ knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
 ```
+
 
 
