@@ -32,6 +32,11 @@ Final folder: A folder containing:
 
 To run the entirety of our pipeline, install all required packages and run the main.py file.
 
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
 The code is however modular and functions can be imported from the different scripts and utilized as needed.
 
 In order to train the Resnet18 you can call the following code:
@@ -88,6 +93,7 @@ knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
 ```
+
 
 
 
