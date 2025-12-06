@@ -14,7 +14,7 @@ import torchvision.models as models
 
 def load_nih_pills(df):
     df = df[['name', 'nlmImageFileName']]
-    image_dir = "600"
+    image_dir = "Data/600"
 
     df['full_path'] = df['nlmImageFileName'].apply(
     lambda x: os.path.join(image_dir, os.path.basename(str(x)))
