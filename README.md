@@ -7,11 +7,12 @@ Instead, we shifted to what proved to be a more effective approach, which was us
 
 Repositiory Contents Include:
 
-Data Folder: A folder containing another folder titled '300'. This includes all of the image data.
-
 Milestone 1 Folder: A folder containing the milestone 1 proposal.
 
-Milestone 2 folder: A folder containing a 'Results' folder (with our training curve graphs and metrics table), the jupyter notebook 'Group11_Milestone2_Code.ipynb' (the code for our baseline model and graphs), and Group11_checkpoint.pdf (our write up for milestone 2).
+Milestone 2 folder: A folder containing 
+- 'Results' folder (with our training curve graphs and metrics table)
+- the jupyter notebook 'Group11_Milestone2_Code.ipynb' (the code for our baseline model and graphs)
+- Group11_checkpoint.pdf (our write up for milestone 2).
 
 Final folder: A folder containing:
 - config.yaml
@@ -22,9 +23,10 @@ Final folder: A folder containing:
 - eval_retrieval.py (used for evaluation)
 - Group11_Final_Code.ipynb (a complete interactive notebook with the full code)
 - table.csv (a list of the correpsonding pill image labels)
-- Data Folder (this contained three folders (300, 600, real_world) which all contain image data
+- 'Data' Folder (this contained three folders (300, 600, real_world) which all contain image data
 - main.py (combines the .pys to run these models)
 - nlm_images_verified.csv (verifies the images are uploaded correctly)
+- Group11_Final_Paper (Our Final Paper Deliverable)
 
 ### Instructions for reproducibility:
 
@@ -86,4 +88,5 @@ knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
 ```
+
 
