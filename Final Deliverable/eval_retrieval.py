@@ -11,6 +11,7 @@ from torch.utils.data import Dataset, DataLoader, random_split
 
 import torchvision.transforms as transforms
 import torchvision.models as models
+import numpy as np
 
 # This is an evaluation function that calculates loss 
 
