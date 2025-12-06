@@ -67,4 +67,5 @@ def load_nih_pills(df):
     df_nlm['label_id'] = le.fit_transform(df_nlm['label'])
     num_classes = len(le.classes_)
     print("Classes:", num_classes)
+
     return df_nlm,le,num_classes
