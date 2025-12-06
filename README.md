@@ -13,7 +13,18 @@ Milestone 1 Folder: A folder containing the milestone 1 proposal.
 
 Milestone 2 folder: A folder containing a 'Results' folder (with our training curve graphs and metrics table), the jupyter notebook 'Group11_Milestone2_Code.ipynb' (the code for our baseline model and graphs), and Group11_checkpoint.pdf (our write up for milestone 2).
 
-Final folder: A folder containing our final config.yaml, eval_retrieval.py, load_nih_pills.py, train_knn_retrieval.py, and train_resnet18_classifier.py files.
+Final folder: A folder containing:
+- config.yaml
+- requirements.txt
+- load_nih_pills.py (used to load the data)
+- train_knn_retrieval.py (used to train knn)
+- train_resnet18_classifier.py (used to train resnet18)
+- eval_retrieval.py (used for evaluation)
+- Group11_Final_Code.ipynb (a complete interactive notebook with the full code)
+- table.csv (a list of the correpsonding pill image labels)
+- Data Folder (this contained three folders (300, 600, real_world) which all contain image data
+- main.py (combines the .pys to run these models)
+- nlm_images_verified.csv (verifies the images are uploaded correctly)
 
 ### Instructions for reproducibility:
 
@@ -75,3 +86,4 @@ knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
 ```
+
