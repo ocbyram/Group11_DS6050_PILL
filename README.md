@@ -73,4 +73,5 @@ from eval_retrieval import evaluate_knn
 knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
+
 ```
