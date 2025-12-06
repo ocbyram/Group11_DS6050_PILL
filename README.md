@@ -17,35 +17,60 @@ Final folder: A folder containing our final config.yaml, eval_retrieval.py, load
 
 ### Instructions for reproducibility:
 
-To run our baseline classifier, create a python file or notebook in the Final folder and run the following code:
+To run the entirety of our pipeline, install all required packages and run the main.py file.
+
+The code is however modular and functions can be imported from the different scripts and utilized as needed.
+
+In order to train the Resnet18 you can call the following code:
 
 ```python
 
-from train_pretrained_resnet import train_pretrained_resnet
+from train_resnet18_classifier import train_resnet
 
-(
-    classifier_model,
-    feature_model,
-    features_dict,
-    df_nlm,
-    label_encoder,
-    num_classes,
-    test_loader
-) = train_pretrained_resnet()
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+num_classes = 2100
+
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+val_loader   = DataLoader(val_dataset, batch_size=32, shuffle=False)
+test_loader  = DataLoader(test_dataset, batch_size=32, shuffle=False)
+
+train_resnet(device, num_classes, train_loader, val_loader, criterion)
 
 ```
 
-In order to run the retrieval evaluation, run the following code:
+In order to train the knn on the resnet18 embeddings, run the following code:
 
 ```python
 
-from eval_retrieval import run_full_retrieval_evaluation
+from sklearn.neighbors import KNeighborsClassifier
+from train_knn_retrieval import train_knn
 
-results = run_full_retrieval_evaluation()
+features_dict = {}
 
-print("Recall:", results["recall"])
-print("MRR:", results["mrr"])
-print("Average inference time:", results["avg_time"])
+    for idx, row in df_nlm.iterrows():
+        label = row["label"]
+        img_path = row["full_path"]
+
+        print("Extracting:", label)
+        features_dict[label] = extract_features(img_path)
+
+    torch.save(features_dict, save_path)
+    print("Saved new features to:", save_path)
+
+X, y, knn = train_knn(features_dict)
+
+```
+And to evalute the final knn on resnet18 embeddings:
+
+```python
+
+from load_nih_pills import load_nih_pills
+df_nlm, le, num_classes = load_nih_pills(df)
+file_path = 'table.csv'
+df = pd.read_csv(file_path)
+
+from eval_retrieval import evaluate_knn
+knn_test_acc = evaluate_knn(knn, test_loader, le, device, feature_model)
 
 
 ```
