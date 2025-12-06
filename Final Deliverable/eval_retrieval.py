@@ -1,3 +1,4 @@
+# Import dependencies
 
 import os
 import pandas as pd
@@ -11,6 +12,7 @@ from torch.utils.data import Dataset, DataLoader, random_split
 import torchvision.transforms as transforms
 import torchvision.models as models
 
+# This is an evaluation function that calculates loss 
 
 def evaluate(model, loader, device, criterion):
    model.eval()
@@ -33,6 +35,8 @@ def evaluate(model, loader, device, criterion):
 
 
    return total_loss / total, correct / total
+
+# This function gets the recall@1 and recall@5 to evaluate the softmax classifier (pretrained ResNet18)
 
 def evaluate_softmax(model, test_loader, device):
     model.eval()
@@ -58,6 +62,7 @@ def evaluate_softmax(model, test_loader, device):
 
     return recall1 / total, recall5 / total
 
+# This function evaluates KNN and tells us how many of the labels were correct
 
 def evaluate_knn(knn, test_loader, label_encoder, device, feature_model):
     correct = 0
@@ -78,3 +83,4 @@ def evaluate_knn(knn, test_loader, label_encoder, device, feature_model):
         total += len(true_names)
 
     return correct / total
+
