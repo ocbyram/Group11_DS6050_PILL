@@ -1,0 +1,15 @@
+dataset:
+  csv_path: "nlm_images_verified.csv"
+
+training:
+  batch_size: 32
+  epochs: 10
+  learning_rate: 1e-4
+
+knn:
+  k: 5
+  metric: "cosine"
+
+transforms:
+  image_size: 300
+
